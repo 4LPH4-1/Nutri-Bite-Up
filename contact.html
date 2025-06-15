@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Contact - NutriBite Up</title>
+  <link
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+    rel="stylesheet"
+  />
+  <style>
+    /* Reset și body */
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0 20px;
+      background-color: #748b34;
+      color: #4a4a4a;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    /* Header */
+    .main-header {
+      background-color: transparent;
+      background-image: url(Banner\ Header1.png);
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 40px;
+      color: white;
+      border: 3px solid #644443;
+      border-radius: 0 0 30px 30px;
+      flex-wrap: wrap;
+      margin-bottom: 30px;
+    }
+    .logo-img {
+      height: 70px;
+      border-radius: 50px;
+      transition: transform 0.3s ease, filter 0.3s ease;
+      cursor: pointer;
+    }
+    .logo-img:hover {
+      transform: scale(1.1);
+      filter: brightness(1.0);
+    }
+    .logo-img:active {
+      filter: drop-shadow(0 0 10px gold);
+    }
+    .nav-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 10px;
+      margin-top: 10px;
+    }
+    .nav-buttons button {
+      background: rgba(215, 183, 94, 0.6);
+      border: 3px solid #748b34;
+      color: #644443;
+      padding: 10px 20px;
+      border-radius: 30px 60px;
+      cursor: pointer;
+      transition: transform 0.3s ease, background-color 0.3s ease;
+      font-weight: bold;
+    }
+    .nav-buttons button:hover {
+      transform: scale(1.05);
+      background-color: #748b34;
+      color: white;
+    }
+    .nav-buttons button:active {
+      filter: drop-shadow(0 0 10px gold);
+    }
+
+    /* Titlu pagina */
+    h1 {
+      text-align: center;
+      margin-top: 40px;
+      color: #d7b75e;
+    }
+
+    /* FAQ Section */
+    .faq-section {
+      max-width: 800px;
+      margin: 0 auto 40px auto;
+      background: #dbd2b8;
+      border-radius: 15px;
+      padding: 30px;
+      box-shadow: 0 4px 10px rgba(100, 68, 67, 0.5);
+      margin-top: 20px;
+    }
+    .faq-section h2 {
+      margin-bottom: 25px;
+      color: #644443;
+      text-align: center;
+    }
+    .faq-item {
+      margin-bottom: 20px;
+    }
+    .faq-question {
+      font-weight: bold;
+      cursor: pointer;
+      position: relative;
+      padding-right: 25px;
+      color: #a65d43;
+      user-select: none;
+    }
+    .faq-question::after {
+      content: "+";
+      position: absolute;
+      right: 0;
+      top: 0;
+      font-size: 20px;
+      transition: transform 0.3s ease;
+    }
+    .faq-question.active::after {
+      content: "-";
+    }
+    .faq-answer {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.3s ease;
+      padding-left: 10px;
+      color: #5b4334;
+    }
+    .faq-answer.open {
+      max-height: 300px;
+      margin-top: 8px;
+    }
+
+    /* Contact Section */
+    .contact-section {
+      width: 100%;
+      margin: 0 auto 80px auto;
+      text-align: center;
+      margin-top: 40px;
+    }
+    .contact-section h2 {
+      color: #644443;
+      margin-bottom: 20px;
+    }
+    .address {
+      font-size: 1.2rem;
+      margin-bottom: 20px;
+      color: #7b5b49;
+    }
+    .map-container { 
+      width: 100%;
+      height: 450px;
+      border-radius: 15px;
+      overflow: hidden;
+      box-shadow: 0 4px 15px rgba(100, 68, 67, 0.5);
+      margin: 0 auto;
+    }
+
+    /* Footer CSS */
+    .main-footer {
+      margin-top: 40px;
+      background-color: transparent;
+      background-image: url(Banner\ Header1.png);
+      background-position: center;
+      background-size: cover;
+      text-align: center;
+      padding: 40px 20px;
+      border: 3px solid #644443;
+      border-radius: 30px 30px 0 0;
+    }
+    .main-footer p {
+      font-size: 1.5rem;
+      margin-bottom: 20px;
+      color: #d7b75e;
+      text-shadow: 1px 1px 4px rgba(215, 183, 94, 0.6);
+    }
+    .social-media-buttons {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+    .social-button {
+      width: 50px;
+      height: 50px;
+      border-radius: 12px;
+      font-size: 1.5rem;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: white;
+      text-decoration: none;
+      transition: transform 0.3s ease;
+    }
+    .social-button:hover {
+      transform: scale(1.15);
+    }
+    .social-button.instagram {
+      background: linear-gradient(45deg, #feda75, #d62976, #962fbf);
+    }
+    .social-button.facebook {
+      background-color: #1877F2;
+    }
+    .logo-UBc {
+      margin-top: 30px;
+    }
+    .logo-UBc img {
+      height: 30px;
+      border-radius: 10px;
+      transition: transform 0.3s ease, filter 0.3s ease;
+    }
+    .logo-UBc img:hover {
+      transform: scale(1.1);
+      filter: brightness(1.1);
+    }
+
+    /* Responsive Design */
+    @media (max-width: 900px) {
+      .main-header {
+        padding: 15px 20px;
+        flex-direction: column;
+        gap: 15px;
+      }
+      .nav-buttons {
+        margin-top: 0;
+        gap: 8px;
+      }
+      .faq-section, .contact-section {
+        padding: 20px;
+      }
+      .map-container {
+        height: 300px;
+      }
+    }
+    @media (max-width: 480px) {
+      body {
+        padding: 0 10px;
+      }
+      .nav-buttons button {
+        padding: 8px 14px;
+        font-size: 0.9rem;
+      }
+      .faq-section, .contact-section {
+        padding: 15px;
+      }
+      .map-container {
+        height: 250px;
+      }
+      h1 {
+        font-size: 1.6rem;
+      }
+      .main-footer p {
+        font-size: 1.2rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Header -->
+  <header class="main-header">
+    <div class="logo" onclick="goHome()" tabindex="0" role="button" aria-label="Mergi la pagina principală">
+      <a href="index.html"><img src="Logo NB up.jpg" alt="Nutri‑Bite Logo" class="logo-img" /></a>
+    </div>
+    <nav class="nav-buttons" role="navigation" aria-label="Meniu principal">
+      <button onclick="navigateTo('home')" aria-label="Pagina principală">Home</button>
+      <button onclick="navigateTo('about')" aria-label="Despre noi">About Us</button>
+      <button onclick="navigateTo('contact')" aria-label="Pagina de contact">Contact</button>
+    </nav>
+  </header>
+
+  <h1>Contact NutriBite Up</h1>
+
+  <!-- FAQ Section -->
+  <section class="faq-section" aria-label="Întrebări frecvente">
+    <h2>Întrebări frecvente (FAQ)</h2>
+
+    <div class="faq-item">
+      <div class="faq-question" tabindex="0">Cum pot comanda un produs?</div>
+      <div class="faq-answer">Poți comanda produsele direct de pe site-ul nostru, adăugând produsele dorite în coș și urmând pașii pentru finalizarea comenzii.</div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-question" tabindex="0">Care sunt metodele de plată acceptate?</div>
+      <div class="faq-answer">Acceptăm plata prin card bancar, transfer bancar și plata ramburs la livrare.</div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-question" tabindex="0">Cum pot urmări stadiul comenzii mele?</div>
+      <div class="faq-answer">După plasarea comenzii, vei primi un email cu detaliile și un link pentru a urmări livrarea.</div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-question" tabindex="0">Pot returna un produs dacă nu sunt mulțumit?</div>
+      <div class="faq-answer">Da, poți returna produsele în termen de 14 zile conform politicii noastre de retur, cu condiția ca produsele să fie în stare nouă.</div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section class="contact-section" aria-label="Informații de contact și locație">
+    <h2>Contactează-ne</h2>
+    <p class="address">Adresa noastră: Calea Mărășești 157, Bacău 600115</p>
+    <div class="map-container">
+      <iframe
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2711.983048843852!2d26.913158215713476!3d46.56957847911807!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40c893f0cb9495f9%3A0x10b6e17f36ec8628!2sCalea%20M%C4%83r%C4%83%C8%99e%C8%99ti%20157%2C%20Bac%C4%83u!5e0!3m2!1sro!2sro!4v1685175412345!5m2!1sro!2sro"
+        width="100%"
+        height="100%"
+        style="border:0;"
+        allowfullscreen=""
+        loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade"
+        title="Harta locației NutriBite Up"
+      ></iframe>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="main-footer">
+    <p>Urmărește-ne și pe social media:</p>
+    <div class="social-media-buttons">
+      <a href="https://www.instagram.com/..." target="_blank" class="social-button instagram" aria-label="Instagram NutriBite Up"><i class="fab fa-instagram"></i></a>
+      <a href="https://www.facebook.com/..." target="_blank" class="social-button facebook" aria-label="Facebook NutriBite Up"><i class="fab fa-facebook-f"></i></a>
+    </div>
+    <div class="logo-UBc">
+      <a href="https://www.ub.ro/" target="_blank" aria-label="Universitatea din București">
+        <img src="Logo_UBC_2-01.png" alt="UBc Logo Footer" />
+      </a>
+    </div>
+    &copy; 2025 NutriBite Up. Toate drepturile rezervate.
+  </footer>
+
+    <script>
+        function navigateTo(page) {
+            const buttons = document.querySelectorAll('.nav-buttons button');
+            buttons.forEach(btn => btn.classList.remove('clicked'));
+
+            const clickedButton = [...buttons].find(btn => btn.textContent.toLowerCase().includes(page));
+            if (clickedButton) {
+            clickedButton.classList.add('clicked');
+            setTimeout(() => clickedButton.classList.remove('clicked'), 600);
+            }
+
+            switch (page) {
+            case 'home':
+                window.location.href = 'index.html';
+                break;
+            case 'about':
+                window.location.href = 'about-us.html';
+                break;
+            case 'contact':
+                window.location.href = 'contact.html';
+                break;
+            default:
+            break;
+        }
+        }
+        // Navigare logo la home (optional, deja link in <a>)
+        function goHome() {
+            window.location.href = 'index.html';
+        }
+
+        // Script pentru toggle FAQ
+        const questions = document.querySelectorAll('.faq-question');
+        questions.forEach((q) => {
+            q.addEventListener('click', () => {
+            const isActive = q.classList.contains('active');
+
+            // inchidem toate raspunsurile
+            document.querySelectorAll('.faq-answer.open').forEach(ans => ans.classList.remove('open'));
+            document.querySelectorAll('.faq-question.active').forEach(ques => ques.classList.remove('active'));
+
+            // deschidem doar daca nu era deja activ
+            if (!isActive) {
+            q.classList.add('active');
+            const answer = q.nextElementSibling;
+            answer.classList.add('open');
+            }
+        });
+
+        q.addEventListener('keypress', (e) => {
+            if (e.key === 'Enter' || e.key === ' ') {
+            e.preventDefault();
+            q.click();
+            }
+        });
+        });
+    </script>
+</body>
+</html>

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ro">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
@@ -27,85 +27,106 @@
     </nav>
   </header>
 
-
-  <!-- HERO -->
-  <section class="hero-section">
+  <!-- HERO SECTION -->
+  <section id="home" class="hero-section scroll-reveal">
     <div class="video-overlay">
-      <!-- Videoclipurile vor fi aici, poți schimba sursa în JS sau HTML -->
       <video autoplay muted loop playsinline id="hero-video">
-        <source src="Video testare.mp4" type="video/mp4" />
+        <source src="Video testare.mp4" type="video/mp4"/>
       </video>
+      <div class="video-color-overlay"></div>
     </div>
-    <!-- Culoarea overlay poate fi adăugată aici -->
-     <div class="video-color-overlay"></div>
-
     <div class="hero-text" id="motto">
       <h1>Synergy in one bite!</h1>
-      <p class="hero-subtext">Creată cu grijă pentru echilibru, sănătate și sustenabilitate, este expresia perfectă a sinergiei dintre natură și inovație. Un singur produs. Nenumărate beneficii.</p>
+      <p class="hero-subtext">Creată cu grijă pentru echilibru, sănătate și sustenabilitate — expresia perfectă a sinergiei dintre natură și inovație.</p>
       <a href="#produs" class="cta-button">Produsul nostru</a>
     </div>
   </section>
 
-  <!-- Poveste -->
-  <section class="poveste-section" id="poveste">
+  <!-- SECTIUNEA POVESTE -->
+  <section id="poveste" class="poveste-section scroll-reveal">
     <div class="poveste-container">
       <div class="poveste-slider-panel">
+        <button class="arrow left">&#10094;</button>
         <div class="slider-wrapper">
-          <button class="arrow left">&#10094;</button>
           <div class="slider" id="imageSlider">
             <img src="Bagheta-paine.jpg" alt="Produs 1" class="slider-img" />
             <img src="Imagine Fasole.jpg" alt="Produs 2" class="slider-img" />
             <img src="Imagine Mazare.jpg" alt="Produs 3" class="slider-img" />
           </div>
-          <button class="arrow right">&#10095;</button>
         </div>
+        <button class="arrow right">&#10095;</button>
       </div>
       <div class="poveste-text-panel">
         <h2>Povestea Noastră</h2>
-        <p>
-          Am început cu o idee simplă: să aducem echilibrul în viața de zi cu zi
-          printr-un produs natural, sustenabil și gustos. Nutri-Bite Up înseamnă
-          mai mult decât hrană — înseamnă grijă.
-        </p>
+        <p>Am început cu o idee simplă: să aducem echilibrul în viața de zi cu zi printr-un produs natural, sustenabil și gustos. Nutri‑Bite Up înseamnă mai mult decât hrană — înseamnă grijă.</p>
       </div>
     </div>
   </section>
 
-
-
-
-  <!-- Produs -->
+  <!-- SECTIUNEA PRODUSE -->
   <section id="produs" class="sectiune-produs scroll-reveal">
+    <h2 style="text-align:center;font-family:'Segoe UI',sans-serif;margin-top:70px;">Produsele Noastre</h2>
+    <div class="product-cards-extra">
+      <div class="product-card scroll-reveal">
+        <img src="Bagheta-paine.jpg" alt="Baghetă" class="product-img" />
+        <h3>Baghetă</h3>
+        <p>Baghetă crocantă perfectă pentru mic dejunuri rapide sau sandwich-uri delicioase.</p>
+        <a href="bagheta.html" class="more-btn">More</a>
+      </div>
+      <div class="product-card scroll-reveal">
+        <img src="Poza Bruschete prototip.jpg" alt="Bruschete" class="product-img" />
+        <h3>Bruschete</h3>
+        <p>Felii rumenite din pâine, perfecte pentru gustări italiene autentice.</p>
+        <a href="bruschete.html" class="more-btn">More</a>
+      </div>
+      <div class="product-card scroll-reveal">
+        <img src="img/pesmet.jpg" alt="Pesmet" class="product-img" />
+        <h3>Pesmet</h3>
+        <p>Pesmet fin, ideal pentru prăjituri, paneuri sau alte preparate gătite.</p>
+        <a href="pesmet.html" class="more-btn">More</a>
+      </div>
+      <div class="product-card scroll-reveal">
+        <img src="img/crutoane.jpg" alt="Crutoane" class="product-img" />
+        <h3>Crutoane</h3>
+        <p>Crutoane aurii, crocante, potrivite pentru supe, creme sau salate.</p>
+        <a href="crutoane.html" class="more-btn">More</a>
+      </div>
+      <div class="product-card scroll-reveal">
+        <img src="img/crutoane.jpg" alt="Bezele" class="product-img" />
+        <h3>Bezele</h3>
+        <p>Crutoane aurii, crocante, potrivite pentru supe, creme sau salate.</p>
+        <a href="bezele.html" class="more-btn">More</a>
+      </div>
+    </div>
+
     <div class="flip-card-container">
       <div class="flip-card">
         <div class="flip-card-inner">
           <div class="flip-card-front">
-            <img src="Imagine Naut.jpg" alt="Ingredientul 1" class="card-image">
-            <h3>Ingredientul 1</h3>
+            <img src="Imagine Naut.jpg" alt="Ingredientul 1" class="card-image" />
+            <h3>Ingredient 1</h3>
           </div>
           <div class="flip-card-back">
             <p>Detalii despre ingredientul 1. Text demonstrativ pentru prezentare.</p>
           </div>
         </div>
       </div>
-
       <div class="flip-card">
         <div class="flip-card-inner">
           <div class="flip-card-front">
-            <img src="Imagine Mazare.jpg" alt="Ingredientul 2" class="card-image">
-            <h3>Ingredientul 2</h3>
+            <img src="Imagine Mazare.jpg" alt="Ingredientul 2" class="card-image" />
+            <h3>Ingredient 2</h3>
           </div>
           <div class="flip-card-back">
             <p>Detalii despre ingredientul 2. Text demonstrativ pentru prezentare.</p>
           </div>
         </div>
       </div>
-
       <div class="flip-card">
         <div class="flip-card-inner">
           <div class="flip-card-front">
-            <img src="Imagine Fasole.jpg" alt="Ingredientul 3" class="card-image">
-            <h3>Ingredientul 3</h3>
+            <img src="Imagine Fasole.jpg" alt="Ingredientul 3" class="card-image" />
+            <h3>Ingredient 3</h3>
           </div>
           <div class="flip-card-back">
             <p>Detalii despre ingredientul 3. Text demonstrativ pentru prezentare.</p>
@@ -114,42 +135,11 @@
       </div>
     </div>
 
-    <h2 class="scroll-reveal" style="text-align: center; margin-top: 50px; font-family: 'Segoe UI', sans-serif;">Produsele Noastre</h2>
-    <div class="product-cards-extra">
-      <div class="product-card scroll-reveal">
-        <img src="Bagheta-paine.jpg" alt="Baghetă" class="product-img">
-        <h3>Baghetă</h3>
-        <p>Baghetă crocantă perfectă pentru mic dejunuri rapide sau sandwich-uri delicioase.</p>
-        <a href="bagheta.html" class="more-btn">More</a>
-      </div>
-
-      <div class="product-card scroll-reveal">
-        <img src="img/bruschete.jpg" alt="Bruschete" class="product-img">
-        <h3>Bruschete</h3>
-        <p>Felii rumenite din pâine, perfecte pentru gustări italiene autentice.</p>
-        <a href="bruschete.html" class="more-btn">More</a>
-      </div>
-
-      <div class="product-card scroll-reveal">
-        <img src="img/pesmet.jpg" alt="Pesmet" class="product-img">
-        <h3>Pesmet</h3>
-        <p>Pesmet fin, ideal pentru prăjituri, paneuri sau alte preparate gătite.</p>
-        <a href="pesmet.html" class="more-btn">More</a>
-      </div>
-
-      <div class="product-card scroll-reveal">
-        <img src="img/crutoane.jpg" alt="Crutoane" class="product-img">
-        <h3>Crutoane</h3>
-        <p>Crutoane aurii, crocante, potrivite pentru supe, creme sau salate.</p>
-        <a href="crutoane.html" class="more-btn">More</a>
-      </div>
-    </div>
-
   </section>
 
-  <!-- Testimoniale -->
-  <section class="testimonials-section">
-    <h2 class="scroll-reveal">Ce spun clienții noștri</h2>
+  <!-- SECTIUNEA TESTIMONIALE -->
+  <section id="testimonials" class="testimonials-section scroll-reveal">
+    <h2>Ce spun clienții noștri</h2>
     <div class="testimonial-cards">
       <div class="testimonial-card scroll-reveal">
         <p>"Un produs delicios și sănătos! Recomand cu încredere."</p>
@@ -167,40 +157,50 @@
         <h4>Ioana Dobre</h4>
       </div>
     </div>
-
     <div class="add-testimonial-button scroll-reveal">
       <a href="adauga-testimonial.html" class="btn-add">Lasă un testimonial</a>
     </div>
-  </section>
 
+    <script>
+      // La încărcare, citește testimonialele și le afișează
+      document.addEventListener('DOMContentLoaded', () => {
+        const container = document.querySelector('.testimonial-cards');
+        const stored = JSON.parse(localStorage.getItem('testimonials')) || [];
+        stored.forEach(({name, rating, message}) => {
+          const card = document.createElement('div');
+          card.className = 'testimonial-card scroll-reveal';
+          card.innerHTML = `
+            <p>"${message}"</p>
+            <div class="stars">${'★'.repeat(rating) + '☆'.repeat(5 - rating)}</div>
+            <h4>${name}</h4>
+          `;
+          container.appendChild(card);
+        });
+      });
+    </script>
+
+  </section>
 
   <!-- FOOTER -->
   <footer class="main-footer">
     <p>Urmărește-ne și pe social media:</p>
     <div class="social-media-buttons">
-      <a href="https://www.instagram.com/societatea.antreprenoriala.ubc/" target="_blank" class="social-button instagram" aria-label="Instagram">
-        <i class="fab fa-instagram"></i>
-      </a>
-      <a href="https://www.facebook.com/people/Societatea-Antreprenorial%C4%83-Studen%C8%9Beasc%C4%83-SAS-UBc/61558572811197/?_rdc=2&_rdr#" target="_blank" class="social-button facebook" aria-label="Facebook">
-        <i class="fab fa-facebook-f"></i>
-      </a>
+      <a href="https://www.instagram.com/..." target="_blank" class="social-button instagram"><i class="fab fa-instagram"></i></a>
+      <a href="https://www.facebook.com/..." target="_blank" class="social-button facebook"><i class="fab fa-facebook-f"></i></a>
     </div>
-
     <div class="logo-UBc">
       <a href="https://www.ub.ro/" target="_blank">
-        <img src="Logo_UBC_2-01.png" alt="UBc Logo Footer"/>
+        <img src="Logo_UBC_2-01.png" alt="UBc Logo Footer" />
       </a>
     </div>
+    &copy; 2025 NutriBite Up. Toate drepturile rezervate.
   </footer>
 
-  <!-- Buton Sus -->
+  <!-- BUTTON BACK TO TOP -->
   <button id="backToTop" title="Sus">
-    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 24 24">
-     <path d="M12 4l-8 8h5v8h6v-8h5z"/>
-    </svg>
+    <i class="fa fa-chevron-up"></i>
   </button>
 
-  <!-- JS -->
   <script src="script.js"></script>
 </body>
 </html>

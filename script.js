@@ -18,28 +18,28 @@ function navigateTo(page) {
   const buttons = document.querySelectorAll('.nav-buttons button');
   buttons.forEach(btn => btn.classList.remove('clicked'));
 
-  const target = {
-    home: "Navighează la Home",
-    about: "Navighează la About Us",
-    contact: "Navighează la Contact"
-  };
-
   const clickedButton = [...buttons].find(btn => btn.textContent.toLowerCase().includes(page));
   if (clickedButton) {
     clickedButton.classList.add('clicked');
     setTimeout(() => clickedButton.classList.remove('clicked'), 600);
   }
 
-  const section = document.getElementById(page);
-  if (section) {
-    section.scrollIntoView({
-      behavior: 'smooth',
-      block: 'start'
-    });
+  // Navigare între pagini
+  switch (page) {
+    case 'home':
+      window.location.href = 'index.html';
+      break;
+    case 'about':
+      window.location.href = 'about-us.html';
+      break;
+    case 'contact':
+      window.location.href = 'contact.html';
+      break;
+    default:
+      break;
   }
-
-  console.log(target[page]);
 }
+
 
 // Efect de apariție pentru motto la scroll (IntersectionObserver)
 document.addEventListener("DOMContentLoaded", function () {

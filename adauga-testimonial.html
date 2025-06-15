@@ -2,21 +2,28 @@
 <html lang="ro">
 <head>
   <meta charset="UTF-8">
-  <title>Lasă un Testimonial</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lasă un Testimonial - Nutri-Bite Up</title>
   <style>
     body {
       background-color: #dbd2b8;
-      font-family: Arial, sans-serif;
-      padding: 40px;
+      font-family: 'Segoe UI', sans-serif;
+      padding: 20px;
+      margin: 0;
       color: #644443;
-      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    h2 {
+      margin-bottom: 20px;
     }
     form {
       background: #fff;
       padding: 30px;
       border-radius: 20px;
+      width: 100%;
       max-width: 500px;
-      margin: auto;
       box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
     }
     label {
@@ -31,30 +38,65 @@
       border-radius: 10px;
       border: 1px solid #ccc;
       resize: none;
+      font-size: 1rem;
     }
-    button {
-      margin-top: 20px;
+    .buttons {
+      display: flex;
+      gap: 20px;
+      margin-top: 25px;
+      justify-content: center;
+    }
+    button, .btn-back {
       padding: 12px 30px;
-      background-color: #644443;
-      color: #dbd2b8;
       border: none;
       border-radius: 30px;
       font-weight: bold;
       cursor: pointer;
+      font-size: 1rem;
+      transition: background 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+    }
+
+    button {
+      background-color: #644443;
+      color: #dbd2b8;
     }
     button:hover {
       background-color: #85655d;
+      box-shadow: 0 0 12px rgba(100, 68, 67, 0.4);
+    }
+
+    .btn-back {
+      background-color: #d7b75e;
+      color: #5e4034;
+    }
+    .btn-back:hover {
+      background-color: #caa93a;
+      transform: scale(1.05);
+    }
+
+    @media (max-width: 600px) {
+      form {
+        padding: 20px;
+      }
+      .buttons {
+        flex-direction: column;
+      }
+      button, .btn-back {
+        width: 100%;
+      }
     }
   </style>
 </head>
 <body>
+
   <h2>Lasă un testimonial</h2>
-  <form onsubmit="submitTestimonial(event)">
+
+  <form id="testimonialForm">
     <label for="name">Nume și prenume</label>
-    <input type="text" id="name" required>
+    <input type="text" id="name" name="name" required>
 
     <label for="rating">Rating (1-5 stele)</label>
-    <select id="rating" required>
+    <select id="rating" name="rating" required>
       <option value="5">★★★★★</option>
       <option value="4">★★★★☆</option>
       <option value="3">★★★☆☆</option>
@@ -63,18 +105,33 @@
     </select>
 
     <label for="message">Mesaj (max. 30 de cuvinte)</label>
-    <textarea id="message" rows="4" maxlength="300" required></textarea>
+    <textarea id="message" name="message" rows="4" maxlength="300" required></textarea>
 
-    <button type="submit">Trimite</button>
+    <div class="buttons">
+      <button type="submit">Trimite</button>
+      <a href="index.html" class="btn-back">Înapoi la pagina principală</a>
+    </div>
   </form>
 
   <script>
-    function submitTestimonial(event) {
-      event.preventDefault();
-      alert("Testimonialul tău a fost trimis cu succes!");
-      // Poți salva aici datele dacă folosești backend
-      document.querySelector("form").reset();
-    }
+    // Când form-ul este trimis, salvăm testimonialul în localStorage
+    document.getElementById('testimonialForm').addEventListener('submit', function(e){
+      e.preventDefault();
+      const name = this.name.value.trim();
+      const rating = this.rating.value;
+      const message = this.message.value.trim();
+
+      // Obținem array-ul curent (sau gol)
+      const existing = JSON.parse(localStorage.getItem('testimonials')) || [];
+      // Adăugăm testimonialul nou
+      existing.push({ name, rating, message });
+      // Salvăm înapoi
+      localStorage.setItem('testimonials', JSON.stringify(existing));
+
+      alert('Testimonialul tău a fost trimis cu succes!');
+      this.reset();
+    });
   </script>
+
 </body>
 </html>

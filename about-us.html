@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Despre Noi | NutriBite Up</title>
+  <link rel="stylesheet" href="styles.css">
+    <!-- Font Awesome CDN pentru pictograme -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" integrity="sha512-..." crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+    body, html {
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+      background-color: #748b34;
+    }
+
+    .main-header {
+      background-image: url('Banner Header1.png');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 40px;
+      color: white;
+      border: 3px solid #644443;
+      border-radius: 0 0 30px 30px;
+      flex-wrap: wrap;
+    }
+    .logo-img {
+      height: 70px;
+      border-radius: 50px;
+    }
+    .nav-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 10px;
+    }
+    .nav-buttons button {
+      background: rgba(215, 183, 94, 0.6);
+      border: 3px solid #748b34;
+      color: #644443;
+      padding: 10px 20px;
+      border-radius: 30px 60px;
+      cursor: pointer;
+    }
+
+    .hero {
+      position: relative;
+      width: 100%;
+      height: 60vh;
+      overflow: hidden;
+    }
+    .hero img {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      opacity: 0;
+      transition: opacity 1s ease-in-out;
+    }
+    .hero img.active {
+      opacity: 1;
+    }
+    .overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image: radial-gradient(#644443 1px, transparent 1px);
+      background-size: 10px 10px;
+      opacity: 0.5;
+      z-index: 1;
+    }
+    .hero-text {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      z-index: 2;
+      color: white;
+      font-size: 2rem;
+      text-align: center;
+      background-color: rgba(0,0,0,0.4);
+      padding: 20px;
+      border-radius: 10px;
+    }
+
+    .team-section {
+      text-align: center;
+      padding: 60px 20px;
+    }
+    .team-members {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 30px;
+      max-width: 1300px;
+      margin: 0 auto;
+    }
+    .team-member {
+      background: #f9f9f9;
+      padding: 30px;
+      width: 260px;
+      border-radius: 20px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      flex: 0 0 auto;
+    }
+    .team-member img {
+      width: 140px;
+      height: 140px;
+      object-fit: cover;
+      border-radius: 50%;
+      margin-bottom: 10px;
+    }
+    .team-member h3 {
+      margin: 10px 0 5px;
+    }
+    .team-member p {
+      margin-bottom: 15px;
+      color: #666;
+    }
+    .team-member a {
+      background: #748b34;
+      color: white;
+      padding: 8px 16px;
+      border-radius: 20px;
+      text-decoration: none;
+      transition: background 0.3s ease;
+    }
+    .team-member a:hover {
+      background: #5a6e28;
+    }
+
+    /* Footer CSS */
+    .main-footer {
+      margin-top: 40px;
+      background-color: transparent;
+      background-image: url(Banner\ Header1.png);
+      background-position: center;
+      background-size: cover;
+      text-align: center;
+      padding: 40px 20px;
+      border: 3px solid #644443;
+      border-radius: 30px 30px 0 0;
+    }
+    .main-footer p {
+      font-size: 1.5rem;
+      margin-bottom: 20px;
+      color: #d7b75e;
+      text-shadow: 1px 1px 4px rgba(215, 183, 94, 0.6);
+    }
+    .social-media-buttons {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+    .social-button {
+      width: 50px;
+      height: 50px;
+      border-radius: 12px;
+      font-size: 1.5rem;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: white;
+      text-decoration: none;
+      transition: transform 0.3s ease;
+    }
+    .social-button:hover {
+      transform: scale(1.15);
+    }
+    .social-button.instagram {
+      background: linear-gradient(45deg, #feda75, #d62976, #962fbf);
+    }
+    .social-button.facebook {
+      background-color: #1877F2;
+    }
+    .logo-UBc {
+      margin-top: 30px;
+    }
+    .logo-UBc img {
+      height: 30px;
+      border-radius: 10px;
+      transition: transform 0.3s ease, filter 0.3s ease;
+    }
+    .logo-UBc img:hover {
+      transform: scale(1.1);
+      filter: brightness(1.1);
+    }
+
+    @media (max-width: 1024px) {
+      .team-member {
+        width: 220px;
+      }
+    }
+    @media (max-width: 768px) {
+      .hero-text {
+        font-size: 1.5rem;
+        padding: 15px;
+      }
+      .team-member {
+        width: 100%;
+      }
+    }
+    @media (max-width: 480px) {
+      .hero-text {
+        font-size: 1.2rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="main-header">
+    <div class="logo">
+      <a href="index.html"><img src="Logo NB up.jpg" alt="Nutri‑Bite Logo" class="logo-img"></a>
+    </div>
+    <nav class="nav-buttons">
+      <button onclick="navigateTo('home')">Home</button>
+      <button onclick="navigateTo('about')">About Us</button>
+      <button onclick="navigateTo('contact')">Contact</button>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <div class="overlay"></div>
+    <div class="hero-text">Hai să ne cunoști echipa.</div>
+    <img src="poza1.jpg" class="active" alt="Hero 1">
+    <img src="poza2.jpg" alt="Hero 2">
+    <img src="Poza Colaj-aboutus1.jpg" alt="Hero 3">
+  </section>
+
+  <section class="team-section">
+    <h2>Echipa Noastră</h2>
+    <div class="team-members">
+      <div class="team-member">
+        <img src="Poza Stefan.jpg" alt="Membru 1">
+        <h3>Neculai Stefan-Catalin</h3>
+        <p>Driver</p>
+        <a href="Stefan.html">Mai multe detalii</a>
+      </div>
+      <div class="team-member">
+        <img src="Poza Ana.jpg" alt="Membru 2">
+        <h3>Ilie Ana-Larisa</h3>
+        <p>Sales and Marketing</p>
+        <a href="Ana.html">Mai multe detalii</a>
+      </div>
+      <div class="team-member">
+        <img src="Poza Maria.jpg" alt="Membru 3">
+        <h3>Vrabie Maria-Ioana</h3>
+        <p>TriNutri-Bar Production</p>
+        <a href="Maria.html">Mai multe detalii</a>
+      </div>
+      <div class="team-member">
+        <img src="Poza Florin.jpg" alt="Membru 4">
+        <h3>Tudose Florin</h3>
+        <p>TriNutri-Bar Production</p>
+        <a href="Florin.html">Mai multe detalii</a>
+      </div>
+    </div>
+    <div class="team-members" style="justify-content: center; margin-top: 30px;">
+      <div class="team-member">
+        <img src="Poza Adela.jpg" alt="Membru 5">
+        <h3>Belciu Adela-Paula</h3>
+        <p>Meringues Production</p>
+        <a href="Adela.html">Mai multe detalii</a>
+      </div>
+      <div class="team-member">
+        <img src="membru6.jpg" alt="Membru 6">
+        <h3>Elena Tudor</h3>
+        <p>Specialist Suplimente</p>
+        <a href="elena.html">Mai multe detalii</a>
+      </div>
+    </div>
+  </section>
+
+
+    <!-- Footer -->
+  <footer class="main-footer">
+    <p>Urmărește-ne și pe social media:</p>
+    <div class="social-media-buttons">
+      <a href="https://www.instagram.com/..." target="_blank" class="social-button instagram" aria-label="Instagram NutriBite Up"><i class="fab fa-instagram"></i></a>
+      <a href="https://www.facebook.com/..." target="_blank" class="social-button facebook" aria-label="Facebook NutriBite Up"><i class="fab fa-facebook-f"></i></a>
+    </div>
+    <div class="logo-UBc">
+      <a href="https://www.ub.ro/" target="_blank" aria-label="Universitatea din București">
+        <img src="Logo_UBC_2-01.png" alt="UBc Logo Footer" />
+      </a>
+    </div>
+    &copy; 2025 NutriBite Up. Toate drepturile rezervate.
+  </footer>
+  <script>
+    function navigateTo(page) {
+      switch(page) {
+        case 'home': 
+        window.location.href = 'index.html'; 
+        break;
+        case 'about': 
+        window.location.href = 'about-us.html'; 
+        break;
+        case 'contact': 
+        window.location.href = 'contact.html'; 
+        break;
+        default:
+        break;
+      }
+    }
+
+    const slides = document.querySelectorAll('.hero img');
+    let currentSlide = 0;
+
+    setInterval(() => {
+      slides[currentSlide].classList.remove('active');
+      currentSlide = (currentSlide + 1) % slides.length;
+      slides[currentSlide].classList.add('active');
+    }, 6000);
+  </script>
+</body>
+</html>

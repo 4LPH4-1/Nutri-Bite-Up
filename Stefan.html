@@ -4,31 +4,84 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Profil Membru Echipă</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
-  <link rel="stylesheet" href="style.css" /> <!-- Asigură-te că ai un fișier CSS -->
+  <!-- Font Awesome pentru iconițele sociale -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="stylesheet" href="style.css" />
   <style>
     body {
       margin: 0;
       font-family: 'Segoe UI', sans-serif;
       background-color: #748b34;
+      max-width: 100vw;
+      overflow-x: hidden;
     }
 
-    .hero-section {
-      height: 300px;
-      background-image: url('banner_about.jpg');
-      background-size: cover;
-      background-position: center;
+    .main-header {
+      background-color: #dbd2b8;
       display: flex;
+      justify-content: space-between;
       align-items: center;
-      justify-content: center;
-      position: relative;
-      color: white;
-      text-shadow: 1px 1px 3px rgba(0,0,0,0.7);
+      padding: 10px 20px;
     }
 
-    .hero-section h1 {
-      font-size: 2.5rem;
-      z-index: 2;
+    .logo-img:hover {
+      transform: scale(1.1);
+      filter: brightness(1.0);
+    }
+    .logo-img:active {
+      filter: drop-shadow(0 0 10px gold);
+    }
+
+    .nav-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 10px;
+      margin-top: 10px;
+    }
+    .nav-buttons button {
+      background: rgba(215, 183, 94, 0.6);
+      border: 3px solid #748b34;
+      color: #644443;
+      padding: 10px 20px;
+      border-radius: 30px 60px;
+      cursor: pointer;
+      transition: transform 0.3s ease, background-color 0.3s ease;
+    }
+    .nav-buttons button:hover {
+      transform: scale(1.05);
+      background-color: #748b34;
+      color: white;
+    }
+    .nav-buttons button:active {
+      filter: drop-shadow(0 0 10px gold);
+    }
+
+    .hamburger {
+      display: none;
+      font-size: 2rem;
+      color: #644443;
+      cursor: pointer;
+    }
+
+    #mobile-menu {
+      display: none;
+      flex-direction: column;
+      background-color: #dbd2b8;
+      padding: 10px;
+      border-radius: 30px;
+    }
+
+    #mobile-menu.show {
+      display: flex;
+    }
+
+    #mobile-menu button {
+      background-color: transparent;
+      border: none;
+      font-size: 1rem;
+      margin: 5px 0;
+      cursor: pointer;
     }
 
     .member-profile {
@@ -74,91 +127,181 @@
       line-height: 1.6;
     }
 
+    .social-buttons {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      margin-top: 1.5rem;
+    }
+
+    .social-btn {
+      padding: 0.6rem 0.8rem;
+      border-radius: 50%;
+      background-color: #dbd2b8;
+      font-size: 1.2rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 40px;
+      height: 40px;
+      transition: transform 0.2s ease, background-color 0.2s ease;
+      color: #000;
+      text-decoration: none;
+    }
+
+    .social-btn:hover {
+      transform: scale(1.2);
+      background-color: #c1b8a1;
+    }
+
+    .main-footer {
+      text-align: center;
+      padding: 20px;
+      background-color: #dbd2b8;
+    }
+
+    .main-footer .social-media-buttons {
+      margin: 10px 0;
+    }
+
+    .main-footer .social-button {
+      margin: 0 10px;
+      color: #fcf9f9;
+      font-size: 1.2rem;
+    }
+
+    .logo-UBc img {
+      height: 40px;
+      margin-top: 10px;
+    }
+
     @media (max-width: 768px) {
+      .nav-buttons {
+        display: none;
+      }
+
+      .hamburger {
+        display: block;
+      }
+
       .member-profile {
         flex-direction: column;
         align-items: center;
       }
 
       .profile-details {
-        width: 100%;
+        width: 100% !important;     /* asigurăm că ocupă toată lățimea pe mobil */
+        max-width: 100% !important; /* evită limitarea la 600px pe mobil */
+        padding: 20px;              /* un padding mai redus pe ecrane mici */
+        box-sizing: border-box;
+      }
+
+      .social-buttons {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 10px;
+      }
+
+      .social-btn {
+        width: 40px;
+        height: 40px;
+        padding: 0;
+        font-size: 1.1rem;
       }
     }
   </style>
 </head>
 <body>
 
-    <!-- HEADER -->
-    <header class="main-header">
-        <div class="logo" onclick="goHome()">
-            <a href="index.html"><img src="Logo NB up.jpg" alt="Nutri‑Bite Logo" class="logo-img"></a>
-        </div>
-        <nav class="nav-buttons">
-            <button onclick="navigateTo('home')">Home</button>
-            <button onclick="navigateTo('about')">About Us</button>
-            <button onclick="navigateTo('contact')">Contact</button>
-        </nav>
-    </header>
+  <!-- HEADER -->
+  <header class="main-header">
+    <div class="logo" onclick="goHome()">
+      <a href="index.html"><img src="Logo NB up.jpg" alt="Nutri‑Bite Logo" class="logo-img"></a>
+    </div>
 
-  <!-- Hero section -->
-  <section class="hero-section">
-    <h1>Profil Membru</h1>
-  </section>
+    <nav class="nav-buttons">
+      <button onclick="navigateTo('home')">Home</button>
+      <button onclick="navigateTo('about')">About Us</button>
+      <button onclick="navigateTo('contact')">Contact</button>
+    </nav>
+
+    <div class="hamburger" onclick="toggleMenu()">☰</div>
+  </header>
+
+  <nav id="mobile-menu">
+    <button onclick="navigateTo('home')">Home</button>
+    <button onclick="navigateTo('about')">About Us</button>
+    <button onclick="navigateTo('contact')">Contact</button>
+  </nav>
 
   <!-- Profil Membru -->
   <section class="member-profile">
-    <img src="Poza Stefan.jpg" alt="Nume Membru">
+    <img src="Poza Stefan.jpg" alt="Neculai Stefan-Catalin">
     <div class="profile-details">
       <h1>Neculai Stefan-Catalin</h1>
       <h2>Driver</h2>
       <p>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium. Membrul este implicat activ în dezvoltarea proiectelor NutriBite și contribuie la inovație și colaborare în echipă.
+        Sunt Ștefan, membru activ al echipei Nutri-Bite-Up, unde am creat și administrez site-ul proiectului. Mă ocup de actualizări și optimizarea platformei, asigurând funcționalitatea ei. De asemenea, particip la susținerea prezentării, explicând componenta digitală și rolul meu tehnic în proiect.
       </p>
-    </div>
 
+      <div class="social-buttons">
+        <a href="https://www.instagram.com/stefan_neculai?igsh=MTR4ejM5ZGM0YTNrZw== " target="_blank" class="social-btn instagram"><i class="fab fa-instagram"></i></a>
+        <a href="https://www.facebook.com/share/19bHJyCzFC/" target="_blank" class="social-btn facebook"><i class="fab fa-facebook-f"></i></a>
+        <a href="mailto:sneculai71@gmail.com" class="social-btn gmail"><i class="fas fa-envelope"></i></a>
+      </div>
+    </div>
   </section>
 
-    <!-- FOOTER -->
-    <footer class="main-footer">
-        <p>Urmărește-ne și pe social media:</p>
-        <div class="social-media-buttons">
-            <a href="https://www.instagram.com/..." target="_blank" class="social-button instagram"><i class="fab fa-instagram"></i></a>
-            <a href="https://www.facebook.com/..." target="_blank" class="social-button facebook"><i class="fab fa-facebook-f"></i></a>
-        </div>
-        <div class="logo-UBc">
-            <a href="https://www.ub.ro/" target="_blank">
-            <img src="Logo_UBC_2-01.png" alt="UBc Logo Footer" />
-            </a>
-        </div>
-        &copy; 2025 NutriBite Up. Toate drepturile rezervate.
-    </footer>
+  <!-- FOOTER -->
+  <footer class="main-footer">
+    <p>Urmărește-ne și pe social media:</p>
+    <div class="social-media-buttons">
+      <a href="https://www.instagram.com/..." target="_blank" class="social-button instagram"><i class="fab fa-instagram"></i></a>
+      <a href="https://www.facebook.com/..." target="_blank" class="social-button facebook"><i class="fab fa-facebook-f"></i></a>
+    </div>
+    <div class="logo-UBc">
+      <a href="https://www.ub.ro/" target="_blank">
+        <img src="Logo_UBC_2-01.png" alt="UBc Logo Footer" />
+      </a>
+    </div>
+    &copy; 2025 NutriBite Up. Toate drepturile rezervate.
+  </footer>
 
-    <script>
-        function navigateTo(page) {
-            const buttons = document.querySelectorAll('.nav-buttons button');
-            buttons.forEach(btn => btn.classList.remove('clicked'));
+  <script>
+    function navigateTo(page) {
+      const buttons = document.querySelectorAll('.nav-buttons button');
+      buttons.forEach(btn => btn.classList.remove('clicked'));
 
-            const clickedButton = [...buttons].find(btn => btn.textContent.toLowerCase().includes(page));
-            if (clickedButton) {
-            clickedButton.classList.add('clicked');
-            setTimeout(() => clickedButton.classList.remove('clicked'), 600);
-            }
+      const clickedButton = [...buttons].find(btn => btn.textContent.toLowerCase().includes(page));
+      if (clickedButton) {
+        clickedButton.classList.add('clicked');
+        setTimeout(() => clickedButton.classList.remove('clicked'), 600);
+      }
 
-            switch (page) {
-            case 'home':
-                window.location.href = 'index.html';
-                break;
-            case 'about':
-                window.location.href = 'about-us.html';
-                break;
-            case 'contact':
-                window.location.href = 'contact.html';
-                break;
-            default:
-            break;
-        }
-        }
-    </script>
+      switch (page) {
+        case 'home':
+          window.location.href = 'index.html';
+          break;
+        case 'about':
+          window.location.href = 'about-us.html';
+          break;
+        case 'contact':
+          window.location.href = 'contact.html';
+          break;
+        default:
+          break;
+      }
+    }
+
+    function toggleMenu() {
+      const menu = document.getElementById("mobile-menu");
+      menu.classList.toggle("show");
+    }
+
+    function goHome() {
+      window.location.href = 'index.html';
+    }
+  </script>
 
 </body>
 </html>

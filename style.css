@@ -252,7 +252,7 @@ h1, h2, h3, h4, h5, h6 {
   width: 100%;
   height: 100%;
   text-align: center;
-  transition: transform 1.5s;
+  transition: transform 1.0s;
   transform-style: preserve-3d;
 }
 
@@ -518,6 +518,19 @@ h1, h2, h3, h4, h5, h6 {
   transform: translateX(0);
 }
 
+.hamburger {
+  display: none;
+  font-size: 2rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.nav-menu {
+  display: flex;
+  gap: 1.5rem;
+  list-style: none;
+}
 /* ====================================== MEDIA QUERIES ========================================= */
 /* Tablete */
 @media (max-width: 1024px) {
@@ -545,8 +558,21 @@ h1, h2, h3, h4, h5, h6 {
   }
 }
 
+.hamburger {
+  display: none;
+  font-size: 2rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.nav-menu {
+  display: flex;
+  gap: 1.5rem;
+  list-style: none;
+}
 /* Telefoane */
-@media (max-width: 600px) {
+@media (max-width: 768px) {
   .main-header {
     flex-direction: column;
     align-items: flex-start;

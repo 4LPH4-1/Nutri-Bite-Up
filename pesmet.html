@@ -3,7 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Pesmet - NutriBite Up</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <title>Baghetă - NutriBite Up</title>
   <style>
     /* === HEADER === */
     .main-header {
@@ -50,6 +51,7 @@
     .nav-buttons button:hover {
       transform: scale(1.05);
       background-color: #748b34;
+      color: white;
     }
 
     .nav-buttons button:active {
@@ -81,10 +83,56 @@
       box-shadow: 0 4px 15px rgba(0,0,0,0.1);
     }
 
-    .product-image img {
+    .image-slider {
+      position: relative;
+      overflow: hidden;
+      border-radius: 12px;
+    }
+
+    .image-slider img {
       width: 100%;
+      display: none;
+      transition: opacity 0.5s ease;
       border-radius: 10px;
-      object-fit: cover;
+    }
+
+    .image-slider img.active {
+      display: block;
+    }
+
+    .slider-controls {
+      position: absolute;
+      top: 50%;
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      transform: translateY(-50%);
+      padding: 0 15px;
+    }
+
+    .arrow {
+      font-size: 2rem;
+      color: #644443;
+      background-color: rgba(255, 255, 255, 0.7);
+      padding: 6px 12px;
+      border-radius: 50%;
+      cursor: pointer;
+      transition: transform 0.2s ease;
+    }
+
+    .arrow:hover {
+      transform: scale(1.1);
+    }
+
+    .slide-counter {
+      position: absolute;
+      bottom: 12px;
+      right: 15px;
+      background-color: rgba(255, 255, 255, 0.7);
+      color: #644443;
+      padding: 5px 10px;
+      border-radius: 15px;
+      font-size: 0.9rem;
     }
 
     .product-details {
@@ -128,8 +176,8 @@
       display: inline-block;
       margin-top: 30px;
       padding: 10px 25px;
-      background-color: #644443;
-      color: #fff6e8;
+      background-color: #d7b75e;
+      color: #644443;
       text-decoration: none;
       border-radius: 25px;
       font-weight: bold;
@@ -137,15 +185,72 @@
     }
 
     .btn-back:hover {
-      background-color: #85655d;
+      background-color: #b89e4f;
     }
 
-    footer {
-      margin-top: 60px;
-      background-color: #644443;
-      color: #fff6e8;
+    .main-footer {
+      margin-top: 40px;
+      background-color: transparent;
+      background-image: url(Banner\ Header1.png);
+      background-position: center;
+      background-size: cover;
       text-align: center;
-      padding: 20px;
+      padding: 40px 20px;
+      border: 3px solid #644443;
+      border-radius: 30px 30px 0 0;
+    }
+
+    .main-footer p {
+      font-size: 1.5rem;
+      margin-bottom: 20px;
+      color: #d7b75e;
+      text-shadow: 1px 1px 4px rgba(215, 183, 94, 0.6);
+    }
+
+    .social-media-buttons {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+    }
+
+    .social-button {
+      width: 50px;
+      height: 50px;
+      border-radius: 12px;
+      font-size: 1.5rem;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: white;
+      text-decoration: none;
+      transition: transform 0.3s ease;
+    }
+
+    .social-button:hover {
+      transform: scale(1.15);
+    }
+
+    .social-button.instagram {
+      background: linear-gradient(45deg, #feda75, #d62976, #962fbf);
+    }
+
+    .social-button.facebook {
+      background-color: #1877F2;
+    }
+
+    .logo-UBc {
+      margin-top: 30px;
+    }
+
+    .logo-UBc img {
+      height: 30px;
+      border-radius: 10px;
+      transition: transform 0.3s ease, filter 0.3s ease;
+    }
+
+    .logo-UBc img:hover {
+      transform: scale(1.1);
+      filter: brightness(1.1);
     }
   </style>
 </head>
@@ -168,67 +273,108 @@
   <!-- PAGINA PRODUS -->
   <section class="product-container">
     <div class="product-image">
-      <img src="img/bagheta.jpg" alt="Pesmet">
+      <div class="image-slider">
+        <img src="Poza pesmet1.jpg" alt="Pesmet 1" class="active">
+        <img src="Poza pesmet2.jpg" alt="Pesmet 2">
+       
+
+        <div class="slider-controls">
+          <span class="arrow left">&#10094;</span>
+          <span class="arrow right">&#10095;</span>
+        </div>
+        <div class="slide-counter">1 / 2</div>
+      </div>
     </div>
 
     <div class="product-details">
-      <h1>Baghetă NutriBite</h1>
+      <h1>Pesmet NutriBite</h1>
       <p>
-        Pesmet crocant, preparat din pâine integrală coaptă lent, perfect pentru paneuri sau adaos în supe.
+        Pesmetul NutriBite este perfect pentru a da textură crocantă preparatelor, fiind ideal la paneuri sau ca agent de legare în compoziții. Se obține prin măcinarea pâinii uscate. 
       </p>
 
       <div class="nutritional-info">
-        <h3>Valori nutriționale per 100g:</h3>
+        <h3>Valori per 30g:</h3>
         <ul>
-          <li>Energie: 280 kcal</li>
-          <li>Proteine: 9g</li>
-          <li>Grăsimi: 2g (din care saturate 0.4g)</li>
-          <li>Carbohidrați: 56g (din care zaharuri 2g)</li>
-          <li>Fibre: 3g</li>
-          <li>Sodiu: 0.5g</li>
+          <li>Mărime Granulație: < 0.37 mm</li>
+          <li>Energie: 1206 kJ / 285 kcal</li>
         </ul>
       </div>
 
-      <a href="index.html #produs" class="btn-back">Înapoi la produse</a>
+      <a href="index.html#produs" class="btn-back">Înapoi la produse</a>
     </div>
   </section>
 
-  <footer>
+  <!-- FOOTER -->
+  <footer class="main-footer">
+    <p>Urmărește-ne și pe social media:</p>
+    <div class="social-media-buttons">
+      <a href="https://www.instagram.com/..." target="_blank" class="social-button instagram"><i class="fab fa-instagram"></i></a>
+      <a href="https://www.facebook.com/..." target="_blank" class="social-button facebook"><i class="fab fa-facebook-f"></i></a>
+    </div>
+    <div class="logo-UBc">
+      <a href="https://www.ub.ro/" target="_blank">
+        <img src="Logo_UBC_2-01.png" alt="UBc Logo Footer" />
+      </a>
+    </div>
     &copy; 2025 NutriBite Up. Toate drepturile rezervate.
   </footer>
 
+  <!-- SCRIPT -->
   <script>
-    // Funcție de întoarcere la homepage (cu efect de sclipire pe logo)
     function goHome() {
       const logo = document.querySelector('.logo');
       logo.classList.add('clicked');
       setTimeout(() => logo.classList.remove('clicked'), 600);
-
-      window.scrollTo({
-        top: 0,
-        behavior: 'smooth'
-      });
-
-      console.log("Navighează la homepage.");
+      window.scrollTo({ top: 0, behavior: 'smooth' });
     }
 
-    // Navigare între secțiuni
     function navigateTo(page) {
       const buttons = document.querySelectorAll('.nav-buttons button');
       buttons.forEach(btn => btn.classList.remove('clicked'));
-
       const clickedButton = [...buttons].find(btn => btn.textContent.toLowerCase().includes(page));
       if (clickedButton) {
         clickedButton.classList.add('clicked');
         setTimeout(() => clickedButton.classList.remove('clicked'), 600);
       }
-
-      const section = document.getElementById(page);
-      if (section) {
-        section.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      switch (page) {
+        case 'home':
+          window.location.href = 'index.html';
+          break;
+        case 'about':
+          window.location.href = 'about-us.html';
+          break;
+        case 'contact':
+          window.location.href = 'contact.html';
+          break;
+        default:
+          break;
       }
     }
-  </script>
 
+    const images = document.querySelectorAll('.image-slider img');
+    const leftArrow = document.querySelector('.arrow.left');
+    const rightArrow = document.querySelector('.arrow.right');
+    const counter = document.querySelector('.slide-counter');
+    let currentIndex = 0;
+
+    function updateSlider(index) {
+      images.forEach((img, i) => {
+        img.classList.toggle('active', i === index);
+      });
+      counter.textContent = `${index + 1} / ${images.length}`;
+    }
+
+    leftArrow.addEventListener('click', () => {
+      currentIndex = (currentIndex - 1 + images.length) % images.length;
+      updateSlider(currentIndex);
+    });
+
+    rightArrow.addEventListener('click', () => {
+      currentIndex = (currentIndex + 1) % images.length;
+      updateSlider(currentIndex);
+    });
+
+    updateSlider(currentIndex);
+  </script>
 </body>
 </html>
